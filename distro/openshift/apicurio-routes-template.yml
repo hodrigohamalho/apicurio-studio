@@ -18,6 +18,11 @@ objects:
         name: apicurio-studio-auth
         weight: 100
       wildcardPolicy: None
+      port:
+        targetPort: 8080
+      tls:
+        termination: edge
+        insecureEdgeTerminationPolicy: Allow
   - apiVersion: v1
     kind: Route
     metadata:
@@ -32,6 +37,11 @@ objects:
         name: apicurio-studio-api
         weight: 100
       wildcardPolicy: None
+      port:
+        targetPort: 8080
+      tls:
+        termination: edge
+        insecureEdgeTerminationPolicy: Allow
   - apiVersion: v1
     kind: Route
     metadata:
@@ -46,6 +56,11 @@ objects:
         name: apicurio-studio-ws
         weight: 100
       wildcardPolicy: None
+      port:
+        targetPort: 8080
+      tls:
+        termination: edge
+        insecureEdgeTerminationPolicy: Allow
   - apiVersion: v1
     kind: Route
     metadata:
@@ -60,3 +75,8 @@ objects:
         name: apicurio-studio-ui
         weight: 100
       wildcardPolicy: None
+      port:
+        targetPort: 8080
+      tls:
+        termination: edge
+        insecureEdgeTerminationPolicy: Allow

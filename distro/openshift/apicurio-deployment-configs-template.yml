@@ -14,6 +14,7 @@ objects:
         template: apicurio-studio
       name: apicurio-studio-api
     spec:
+      replicas: 1
       selector:
         app: apicurio-studio-api
         deploymentconfig: apicurio-studio-api
@@ -31,6 +32,7 @@ objects:
             deploymentconfig: apicurio-studio-api
             template: apicurio-studio
         spec:
+          replicas: 1
           containers:
             - image: api:latest-release
               imagePullPolicy: Always
@@ -40,7 +42,7 @@ objects:
                   protocol: TCP
               env:
                 - name: APICURIO_KC_AUTH_URL
-                  value: http://${AUTH_ROUTE}:8080
+                  value: https://${AUTH_ROUTE}:8080
                 - name: APICURIO_KC_REALM
                   value: ${KC_REALM}
                 - name: APICURIO_KC_CLIENT_ID
@@ -114,6 +116,7 @@ objects:
         template: apicurio-studio
       name: apicurio-studio-ws
     spec:
+      replicas: 1
       selector:
         app: apicurio-studio-ws
         deploymentconfig: apicurio-studio-ws
@@ -208,6 +211,7 @@ objects:
         template: apicurio-studio
       name: apicurio-studio-ui
     spec:
+      replicas: 1
       selector:
         app: apicurio-studio-ui
         deploymentconfig: apicurio-studio-ui
@@ -225,6 +229,7 @@ objects:
             deploymentconfig: apicurio-studio-ui
             template: apicurio-studio
         spec:
+          replicas: 1
           containers:
             - image: ui:latest-release
               imagePullPolicy: Always
@@ -236,13 +241,13 @@ objects:
                 - name: APICURIO_OIDC_REDIRECT_HTTPS
                   value: "false"
                 - name: APICURIO_KC_AUTH_URL
-                  value: http://${AUTH_ROUTE}:8080
+                  value: https://${AUTH_ROUTE}:8080
                 - name: APICURIO_KC_REALM
                   value: ${KC_REALM}
                 - name: APICURIO_KC_CLIENT_ID
                   value: ${UI_APICURIO_KC_CLIENT_ID}
                 - name: APICURIO_UI_HUB_API_URL
-                  value: http://${API_ROUTE}:8080
+                  value: https://${API_ROUTE}:8080
                 - name: APICURIO_UI_EDITING_URL
                   value: ws://${WS_ROUTE}:8080
                 - name: APICURIO_UI_LOGOUT_REDIRECT_URI
