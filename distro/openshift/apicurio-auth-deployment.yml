@@ -1796,7 +1796,6 @@ objects:
         app: apicurio-studio-auth
       name: apicurio-studio-auth
     spec:
-      replicas: 1
       selector:
         app: apicurio-studio-auth
       strategy: {}
@@ -1851,7 +1850,6 @@ objects:
           dnsPolicy: ClusterFirst
           restartPolicy: Always
           terminationGracePeriodSeconds: 30
-          replicas: 1
     status: { }
 # Template Parameters
 parameters:

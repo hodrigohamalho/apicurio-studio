@@ -14,7 +14,6 @@ objects:
         template: apicurio-studio
       name: apicurio-studio-api
     spec:
-      replicas: 1
       selector:
         app: apicurio-studio-api
         deploymentconfig: apicurio-studio-api
@@ -32,7 +31,6 @@ objects:
             deploymentconfig: apicurio-studio-api
             template: apicurio-studio
         spec:
-          replicas: 1
           containers:
             - image: api:latest-release
               imagePullPolicy: Always
@@ -116,7 +114,6 @@ objects:
         template: apicurio-studio
       name: apicurio-studio-ws
     spec:
-      replicas: 1
       selector:
         app: apicurio-studio-ws
         deploymentconfig: apicurio-studio-ws
@@ -134,7 +131,6 @@ objects:
             deploymentconfig: apicurio-studio-ws
             template: apicurio-studio
         spec:
-          replicas: 1
           containers:
             - image: ws:latest-release
               imagePullPolicy: Always
@@ -212,7 +208,6 @@ objects:
         template: apicurio-studio
       name: apicurio-studio-ui
     spec:
-      replicas: 1
       selector:
         app: apicurio-studio-ui
         deploymentconfig: apicurio-studio-ui
@@ -230,7 +225,6 @@ objects:
             deploymentconfig: apicurio-studio-ui
             template: apicurio-studio
         spec:
-          replicas: 1
           containers:
             - image: ui:latest-release
               imagePullPolicy: Always
